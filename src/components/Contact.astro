@@ -1,0 +1,94 @@
+---
+---
+
+<section id="contact" class="contact">
+  <div class="contact__inner">
+    <div class="contact__left reveal">
+      <h2>I want to book<br />Pocono Photobooth</h2>
+      <p class="label" style="margin-top: 16px;">For your next event</p>
+    </div>
+
+    <div class="contact__center reveal">
+      <p class="label">Choose an Option</p>
+      <h3 class="contact__heading">Get in touch</h3>
+      <p class="contact__email">hello@poconophotobooth.com</p>
+      <p class="contact__phone">(570) 555-0123</p>
+    </div>
+
+    <div class="contact__right reveal">
+      <h2>Learn more<br />about our services</h2>
+      <p class="label" style="margin-top: 16px;">View packages</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--section-padding) var(--side-padding);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 48px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact__left,
+  .contact__right {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact__left:hover,
+  .contact__right:hover {
+    opacity: 0.7;
+  }
+
+  .contact__left h2,
+  .contact__right h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+  }
+
+  .contact__center {
+    padding: 0 48px;
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .contact__center .label {
+    margin-bottom: 12px;
+  }
+
+  .contact__heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    margin-bottom: 24px;
+  }
+
+  .contact__email,
+  .contact__phone {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .contact__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .contact__center {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 48px 0;
+    }
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+---
+
+<section class="instagram">
+  <div class="container">
+    <div class="instagram__header reveal">
+      <p class="label">Follow Us on Instagram</p>
+      <p class="instagram__handle">@POCONOPHOTOBOOTH</p>
+    </div>
+
+    <div class="instagram__grid reveal">
+      {
+        Array.from({ length: 6 }).map((_, i) => (
+          <div class="instagram__item">
+            <div class="instagram__img">
+              <span>IG {i + 1}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram {
+    padding: var(--section-padding) 0;
+  }
+
+  .instagram__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .instagram__handle {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+  }
+
+  .instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .instagram__item {
+    overflow: hidden;
+  }
+
+  .instagram__img {
+    aspect-ratio: 1;
+    background: var(--color-bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+
+  .instagram__img:hover {
+    transform: scale(1.05);
+  }
+
+  .instagram__img span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .instagram__header {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .instagram__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

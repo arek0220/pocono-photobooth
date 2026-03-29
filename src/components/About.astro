@@ -1,0 +1,97 @@
+---
+---
+
+<section id="about" class="about">
+  <div class="about__inner">
+    <div class="about__image reveal">
+      <div class="photo-placeholder">
+        <span>Photographer Portrait</span>
+      </div>
+    </div>
+    <div class="about__content reveal">
+      <p class="label">About Us</p>
+      <h2>The Pocono<br />Photobooth Experience</h2>
+      <p class="about__text">
+        We bring studio-quality portrait photography directly to your event in
+        the beautiful Pocono Mountains. With professional lighting, elegant
+        backdrops, and years of experience, we create timeless portraits that
+        your guests will treasure forever.
+      </p>
+      <p class="about__text">
+        Every celebration deserves to be captured with care. From intimate
+        weddings at lakeside venues to grand corporate galas at mountain resorts,
+        we deliver an elevated photobooth experience that goes far beyond the
+        ordinary.
+      </p>
+      <a href="#contact" class="btn">More Info</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--section-padding) var(--side-padding);
+  }
+
+  .about__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about__image .photo-placeholder {
+    aspect-ratio: 3/4;
+    background: var(--color-bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .about__image .photo-placeholder::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: var(--color-white);
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .about__image .photo-placeholder span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about__content .label {
+    margin-bottom: 16px;
+  }
+
+  .about__content h2 {
+    margin-bottom: 32px;
+  }
+
+  .about__text {
+    margin-bottom: 20px;
+    line-height: 1.9;
+  }
+
+  .about__content .btn {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .about__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

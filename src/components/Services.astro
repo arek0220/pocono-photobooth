@@ -1,0 +1,108 @@
+---
+const services = [
+  {
+    title: "Weddings",
+    description:
+      "Elegant on-site portrait studio at your wedding venue. We bring professional lighting, backdrops, and create timeless portraits of you and your guests.",
+  },
+  {
+    title: "Corporate Events",
+    description:
+      "Professional headshots and group portraits for company events, galas, and team celebrations throughout the Pocono region.",
+  },
+  {
+    title: "Private Parties",
+    description:
+      "Birthday celebrations, anniversaries, reunions, and holiday parties. A unique entertainment experience your guests will love.",
+  },
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="services__header reveal">
+      <p class="label">What We Do</p>
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services__grid">
+      {
+        services.map((service, i) => (
+          <div class={`services__card reveal`} style={`transition-delay: ${i * 0.15}s`}>
+            <span class="services__number">0{i + 1}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="services__cta reveal">
+      <a href="#contact" class="btn">Book Your Event</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--section-padding) 0;
+  }
+
+  .services__header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .services__header .label {
+    margin-bottom: 16px;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+
+  .services__card {
+    padding: 48px 36px;
+    background: var(--color-bg-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .services__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .services__number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .services__card h3 {
+    margin-bottom: 16px;
+  }
+
+  .services__card p {
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .services__cta {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .services__grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>

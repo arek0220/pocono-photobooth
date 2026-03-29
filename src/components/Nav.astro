@@ -1,0 +1,197 @@
+---
+---
+
+<header class="nav">
+  <div class="nav__inner">
+    <nav class="nav__links nav__links--left">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-top">POCONO</span>
+      <span class="nav__logo-bottom">Photobooth</span>
+    </a>
+
+    <nav class="nav__links nav__links--right">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="nav__mobile-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile-menu">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector(".nav__mobile-toggle");
+  const menu = document.querySelector(".nav__mobile-menu");
+  const header = document.querySelector(".nav");
+
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("open");
+    toggle.classList.toggle("open");
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      toggle?.classList.remove("open");
+    });
+  });
+
+  // Shrink nav on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-bg);
+    transition: all 0.4s ease;
+    padding: 28px 0;
+  }
+
+  .nav.scrolled {
+    padding: 16px 0;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+  }
+
+  .nav__links--left {
+    justify-content: flex-end;
+  }
+
+  .nav__links--right {
+    justify-content: flex-start;
+  }
+
+  .nav__links a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.3s ease;
+  }
+
+  .nav__links a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .nav__logo-top {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+  }
+
+  .nav__logo-bottom {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .nav__mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: absolute;
+    right: var(--side-padding);
+  }
+
+  .nav__mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--color-dark);
+    transition: all 0.3s ease;
+  }
+
+  .nav__mobile-toggle.open span:first-child {
+    transform: rotate(45deg) translate(3px, 3px);
+  }
+
+  .nav__mobile-toggle.open span:last-child {
+    transform: rotate(-45deg) translate(3px, -3px);
+  }
+
+  .nav__mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 0 40px;
+    background: var(--color-bg);
+  }
+
+  .nav__mobile-menu.open {
+    display: flex;
+  }
+
+  .nav__mobile-menu a {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    .nav__links {
+      display: none;
+    }
+
+    .nav__mobile-toggle {
+      display: flex;
+    }
+
+    .nav__inner {
+      justify-content: center;
+    }
+  }
+</style>
