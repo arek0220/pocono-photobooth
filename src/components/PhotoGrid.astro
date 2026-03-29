@@ -3,25 +3,23 @@
 
 <section class="photo-grid">
   <div class="photo-grid__inner">
-    <div class="photo-grid__large reveal">
-      <div class="photo-placeholder photo-placeholder--tall">
+    <div class="photo-grid__item reveal">
+      <div class="photo-placeholder">
         <span>Wedding Portrait</span>
       </div>
     </div>
-    <div class="photo-grid__stack">
-      <div class="photo-grid__small reveal">
-        <div class="photo-placeholder">
-          <span>Couple at Reception</span>
-        </div>
+    <div class="photo-grid__item reveal">
+      <div class="photo-placeholder">
+        <span>Couple at Reception</span>
       </div>
-      <div class="photo-grid__text reveal">
-        <h3>Studio-grade portraits<br />at your event</h3>
-        <p class="photo-grid__subtitle"><em>Elegant & timeless</em></p>
-      </div>
-      <div class="photo-grid__small reveal">
-        <div class="photo-placeholder">
-          <span>Family Photo</span>
-        </div>
+    </div>
+    <div class="photo-grid__text reveal">
+      <h3>Studio-grade portraits<br />at your event</h3>
+      <p class="photo-grid__subtitle"><em>Elegant & timeless</em></p>
+    </div>
+    <div class="photo-grid__item reveal">
+      <div class="photo-placeholder">
+        <span>Family Photo</span>
       </div>
     </div>
   </div>
@@ -35,22 +33,36 @@
   .photo-grid__inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 24px;
-    align-items: start;
+    align-items: center;
   }
 
-  .photo-grid__stack {
+  .photo-grid__item,
+  .photo-grid__text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .photo-placeholder {
+    background: var(--color-bg-light);
+    aspect-ratio: 4/5;
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-top: 80px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .photo-placeholder span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-accent);
+    font-size: 1rem;
   }
 
   .photo-grid__text {
     text-align: center;
-    padding: 48px 24px;
+    padding: 24px 16px;
   }
 
   .photo-grid__text h3 {
@@ -63,34 +75,21 @@
     color: var(--color-text-light);
   }
 
-  .photo-placeholder {
-    background: var(--color-bg-light);
-    aspect-ratio: 4/5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .photo-placeholder--tall {
-    aspect-ratio: 3/4;
-  }
-
-  .photo-placeholder span {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--color-accent);
-    font-size: 1.1rem;
-  }
-
   @media (max-width: 768px) {
     .photo-grid__inner {
-      grid-template-columns: 1fr;
+      flex-wrap: wrap;
     }
 
-    .photo-grid__stack {
-      padding-top: 0;
+    .photo-grid__item,
+    .photo-grid__text {
+      flex: 1 1 calc(50% - 24px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .photo-grid__item,
+    .photo-grid__text {
+      flex: 1 1 100%;
     }
   }
 </style>
